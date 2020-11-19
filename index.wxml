@@ -1,0 +1,44 @@
+<scroll-view
+  class="scroll-view"
+  style="height: 100%;"
+  scroll-x="{{scrollX}}"
+  scroll-y="{{scrollY}}"
+  upper-threshold="{{upperThreshold}}"
+  lower-threshold="{{lowerThreshold}}"
+  scroll-top="{{scrollTop}}"
+  scroll-left="{{scrollLeft}}"
+  scroll-into-view="{{scrollIntoView}}"
+  scroll-with-animation="{{scrollWithAnimation}}"
+  enable-back-to-top="{{enableBackToTop}}"
+  enable-flex="{{enableFlex}}"
+  scroll-anchoring="{{scrollAnchoring}}"
+  refresher-enabled="{{refresherEnabled}}"
+  refresher-threshold="{{refresherThreshold}}"
+  refresher-default-style="{{refresherDefaultStyle}}"
+  refresher-background="{{refresherBackground}}"
+  refresher-triggered="{{refresherTriggered}}"
+  bindscrolltoupper="scrolltoupper"
+  bindscrolltolower="scrolltolower"
+  bindscroll="scroll"
+  bindrefresherpulling="refresherpulling"
+  bindrefresherrefresh="refresherrefresh"
+  bindrefresherrestore="refresherrestore"
+  bindrefresherabort="refresherabort"
+>
+  <view slot="refresher" class="refresh-load">
+    <view class="refresh-load__content">
+      <view class="refresh-pull-arrow {{className}}"/>
+      <view class="refresh-load__text">
+        <view>{{text}}</view>
+        <view>更新于：{{time}}</view>
+      </view>
+    </view>
+  </view>
+  <slot />
+  <view class="refresh-load loading-load">
+    <view class="refresh-load__content">
+      <view class="{{[isEnd?'':'refreshing']}}"/>
+      <view class="refresh-load__text">{{[isEnd?'已经到底了!':'正在加载...']}}</view>
+    </view>
+  </view>
+</scroll-view>
